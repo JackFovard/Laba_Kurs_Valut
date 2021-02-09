@@ -1,0 +1,13 @@
+{
+  "name": "laba_kurs_val",
+  "version": "1.0.0",
+  "description": "",
+  "author": "PKhoz",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.1",
+    "request": "^2.88.2"
+  }
+}
+
