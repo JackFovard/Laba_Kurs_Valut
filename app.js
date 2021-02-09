@@ -5,7 +5,8 @@ const requestAPI = require("request");
 const app = express();
 const port = 3000;
 
-app.set("view engine", "hbs")
+app.set("view engine", "hbs");
+app.set("view options", {layout: "layout"});
 
 app.get("/", (request, response) =>{
     //const model ={
@@ -38,7 +39,7 @@ app.get("/", (request, response) =>{
                 const element = model.Valute[key];
 
                 element.Value = element.Value / element.Nominal;
-                element.DeValue = 1 / element.Nominal;
+                element.DeValue = 1 / element.Value;
             }
         }
 
