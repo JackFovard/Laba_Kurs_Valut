@@ -23,23 +23,32 @@ app.get("/", (request, response) =>{
 
         if(error) console.log(error);
         else {
-            model = JSON.parse(data);
 
+
+            model = JSON.parse(data); 
+            
             model.Valute["RUS"] = {
-                ID: "R0",
-                NumCode: "0",
-                CharCode: "RUS",
-                Nominal: 1,
-                Name: "Российский рубль",
-                Value: 1,
-                Previous: 1,
+            ID: "R0",
+            NumCode: "0",
+            CharCode: "RUS",
+            Nominal: 1,
+            Name: "Российский рубль",
+            Value: 1,
+            Previous: 1,
             };
+
+
+            
+            var count = 1;
 
             for (const key in model.Valute) {
                 const element = model.Valute[key];
 
-                element.Value = element.Value / element.Nominal;
-                element.DeValue = 1 / element.Value;
+                element.Count = count;
+                count += 1;
+
+                element.Value = (element.Value / element.Nominal).toFixed(3);
+                element.DeValue = (1 / element.Value).toFixed(3);
             }
         }
 
